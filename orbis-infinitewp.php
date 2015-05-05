@@ -20,6 +20,7 @@ GitHub URI: https://github.com/wp-orbis/wp-orbis-infinitewp
 
 function orbis_infinitewp_bootstrap() {
 	include 'classes/orbis-infinitewp-plugin.php';
+	include 'classes/orbis-infinitewp-admin.php';
 
 	global $orbis_infinitewp_plugin;
 	
