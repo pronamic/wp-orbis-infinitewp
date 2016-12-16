@@ -96,7 +96,7 @@ class Orbis_InfiniteWP_Admin {
 			'edit.php?post_type=orbis_subscription',
 			__( 'Orbis InfiniteWP', 'orbis_infinitewp' ),
 			__( 'InfiniteWP', 'orbis_infinitewp' ),
-			'manage_options',
+			'orbis_read_infinitewp',
 			'orbis_infinitewp',
 			array( $this, 'page_orbis_infinitewp' )
 		);
