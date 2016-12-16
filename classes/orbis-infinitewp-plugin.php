@@ -43,7 +43,7 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 				$wpdb->orbis_subscription_products AS product
 						ON subscription.type_id = product.id
 			WHERE
-				subscription.cancel_date IS NULL
+				subscription.expiration_date > NOW()
 					AND
 				subscription.type_id IN ( 4, 5, 14, 16, 57, 60 )
 			;
