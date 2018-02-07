@@ -23,7 +23,7 @@ function orbis_infinitewp_bootstrap() {
 	include 'classes/orbis-infinitewp-admin.php';
 
 	global $orbis_infinitewp_plugin;
-	
+
 	$orbis_infinitewp_plugin = new Orbis_InfiniteWP_Plugin( __FILE__ );
 }
 

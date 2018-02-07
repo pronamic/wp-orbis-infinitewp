@@ -18,9 +18,9 @@
 	<table class="wp-list-table widefat fixed striped">
 		<thead>
 			<tr>
-				<th scope="col"><?php _e( 'Name', 'orbis_infinitewp' ); ?></th>
-				<th scope="col"><?php _e( 'Orbis', 'orbis_infinitewp' ); ?></th>
-				<th scope="col"><?php _e( 'InfiniteWP', 'orbis_infinitewp' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Name', 'orbis_infinitewp' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Orbis', 'orbis_infinitewp' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'InfiniteWP', 'orbis_infinitewp' ); ?></th>
 			</tr>
 		</thead>
 
@@ -30,14 +30,14 @@
 
 				<tr>
 					<td>
-						<?php echo $name; ?>
+						<?php echo wp_kses_post( $name ); ?>
 					</td>
 					<td>
 						<?php
 
 						$dashicon = isset( $orbis_subscriptions[ $name ] ) ? 'yes' : 'no';
 
-						printf( '<span class="dashicons dashicons-%s"></span>', $dashicon );
+						printf( '<span class="dashicons dashicons-%s"></span>', wp_kses_post( $dashicon ) );
 
 						?>
 					</td>
@@ -46,7 +46,7 @@
 
 						$dashicon = isset( $infinitewp_sites[ $name ] ) ? 'yes' : 'no';
 
-						printf( '<span class="dashicons dashicons-%s"></span>', $dashicon );
+						printf( '<span class="dashicons dashicons-%s"></span>', wp_kses_post( $dashicon ) );
 
 						?>
 					</td>

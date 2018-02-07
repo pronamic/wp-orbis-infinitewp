@@ -5,6 +5,7 @@
  * Description:
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 1.0.0
  */
@@ -128,7 +129,7 @@ class Orbis_InfiniteWP_Admin {
 		if ( isset( $args['description'] ) ) {
 			printf(
 				'<p class="description">%s</p>',
-				$args['description']
+				wp_kses_post( $args['description'] )
 			);
 		}
 	}

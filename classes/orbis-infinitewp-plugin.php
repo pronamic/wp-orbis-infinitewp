@@ -18,7 +18,6 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 	}
 
 	public function install() {
-		
 
 		parent::install();
 	}
