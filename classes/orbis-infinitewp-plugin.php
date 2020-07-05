@@ -44,7 +44,7 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 			WHERE
 				subscription.expiration_date > NOW()
 					AND
-				subscription.type_id IN ( 4, 5, 14, 16, 57, 60 )
+				subscription.type_id IN ( 4, 5, 14, 16, 57, 60, 143, 144, 145 )
 			;
 		";
 
