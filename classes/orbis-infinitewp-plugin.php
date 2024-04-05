@@ -39,8 +39,8 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 			FROM
 				$wpdb->orbis_subscriptions AS subscription
 					LEFT JOIN
-				$wpdb->orbis_subscription_products AS product
-						ON subscription.type_id = product.id
+				$wpdb->orbis_products AS product
+						ON subscription.product_id = product.id
 			WHERE
 				subscription.expiration_date > NOW()
 					AND
