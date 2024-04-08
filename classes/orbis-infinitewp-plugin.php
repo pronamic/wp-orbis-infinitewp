@@ -159,7 +159,7 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 
 		$count_parts = count( $parts );
 
-		for ( $i = 0; $i < ( $count_parts - 1); $i++ ) {
+		for ( $i = 0; $i < ( $count_parts - 1 ); $i++ ) {
 			$tests = [
 				[
 					[ '*' ],
