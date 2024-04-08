@@ -89,7 +89,7 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 
 		$pdo = $this->get_infinitewp_pdo();
 
-		$sql = 'SELECT siteID, name FROM iwp_sites;';
+		$sql = 'SELECT siteID, name, URL FROM iwp_sites;';
 
 		$results = $pdo->query( $sql );
 
@@ -99,6 +99,7 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 			$sites[ $name ] = [
 				'id'   => $result['siteID'],
 				'name' => $name,
+				'url'  => $result['URL'],
 			];
 		}
 
@@ -135,8 +136,9 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 
 			$websites[] = [
 				'website'               => $site,
+				'url'                   => null === $infinitewp_site ? null : $infinitewp_site['url'],
 				'infinitewp_id'         => null === $infinitewp_site ? null : $infinitewp_site['id'],
-				'orbis_subscription_id' => null === $orbis_subscription ? null : $orbis_subscription->subscription_id,
+				'orbis_subscription_id' => null === $orbis_subscription ? null : (int) $orbis_subscription->subscription_id,
 			];
 		}
 
