@@ -17,8 +17,6 @@ class Orbis_InfiniteWP_Admin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initialize an Orbis core admin
 	 *
@@ -31,8 +29,6 @@ class Orbis_InfiniteWP_Admin {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Admin initalize
@@ -87,8 +83,6 @@ class Orbis_InfiniteWP_Admin {
 		register_setting( 'orbis', 'orbis_infinitewp_db_host' );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Admin menu
 	 */
@@ -115,8 +109,6 @@ class Orbis_InfiniteWP_Admin {
 
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-orbis-infinitewp.php';
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Input text

@@ -18,12 +18,8 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 	}
 
 	public function install() {
-
-
 		parent::install();
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get Orbis subscriptions
@@ -69,8 +65,6 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 
 		return $subscriptions;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get InfiniteWP PDO object
