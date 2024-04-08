@@ -19,6 +19,7 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 
 	public function install() {
 
+
 		parent::install();
 	}
 
@@ -42,7 +43,15 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 				$wpdb->orbis_products AS product
 						ON subscription.product_id = product.id
 			WHERE
-				subscription.expiration_date > NOW()
+				(
+					subscription.expiration_date > NOW()
+						OR
+					(
+						product.price = 0
+							AND
+						subscription.cancel_date IS NULL
+					)
+				)
 					AND
 				product.type = 'wp_support'
 			;
@@ -89,14 +98,17 @@ class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
 
 		$pdo = $this->get_infinitewp_pdo();
 
-		$sql = 'SELECT name FROM iwp_sites;';
+		$sql = 'SELECT siteID, name FROM iwp_sites;';
 
 		$results = $pdo->query( $sql );
 
 		foreach ( $results as $result ) {
 			$name = $result['name'];
 
-			$sites[ $name ] = $name;
+			$sites[ $name ] = [
+				'id'   => $result['siteID'],
+				'name' => $name,
+			];
 		}
 
 		return $sites;
