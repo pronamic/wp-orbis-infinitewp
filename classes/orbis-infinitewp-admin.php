@@ -107,6 +107,12 @@ class Orbis_InfiniteWP_Admin {
 	 * Page Orbis InfiniteWP
 	 */
 	public function page_orbis_infinitewp() {
+		if ( filter_has_var( \INPUT_GET, 'format' ) && 'json' === filter_input( \INPUT_GET, 'format', \FILTER_SANITIZE_STRING ) ) {
+			include plugin_dir_path( $this->plugin->file ) . 'admin/page-orbis-infinitewp-json.php';
+
+			return;
+		}
+
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-orbis-infinitewp.php';
 	}
 
