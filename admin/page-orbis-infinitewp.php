@@ -3,16 +3,7 @@
 
 	<?php
 
-	$orbis_subscriptions = $this->plugin->get_orbis_subscriptions();
-	$infinitewp_sites    = $this->plugin->get_infinitewp_sites();
-
-	// Sites
-	$sites = array_unique(
-		array_merge(
-			array_keys( $orbis_subscriptions ),
-			array_keys( $infinitewp_sites )
-		)
-	);
+	$websites = $this->plugin->get_websites();
 
 	?>
 	<table class="wp-list-table widefat fixed striped">
@@ -25,17 +16,17 @@
 		</thead>
 
 		<tbody>
-			
-			<?php foreach ( $sites as $name ) : ?>
+
+			<?php foreach ( $websites as $website ) : ?>
 
 				<tr>
 					<td>
-						<?php echo wp_kses_post( $name ); ?>
+						<?php echo wp_kses_post( $website['website'] ); ?>
 					</td>
 					<td>
 						<?php
 
-						$dashicon = isset( $orbis_subscriptions[ $name ] ) ? 'yes' : 'no';
+						$dashicon = ( null === $website['orbis_subscription_id'] ? 'no' : 'yes' );
 
 						printf( '<span class="dashicons dashicons-%s"></span>', wp_kses_post( $dashicon ) );
 
@@ -44,7 +35,7 @@
 					<td>
 						<?php
 
-						$dashicon = isset( $infinitewp_sites[ $name ] ) ? 'yes' : 'no';
+						$dashicon = ( null === $website['infinitewp_id'] ? 'no' : 'yes' );
 
 						printf( '<span class="dashicons dashicons-%s"></span>', wp_kses_post( $dashicon ) );
 
