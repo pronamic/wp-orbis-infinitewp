@@ -6,6 +6,11 @@
 	$websites = $this->plugin->get_websites();
 
 	?>
+
+	<p>
+		<a href="<?php echo esc_url( \add_query_arg( 'format', 'json' ) ); ?>" download="websites-orbis.json"><?php \esc_html_e( 'Download JSON', 'orbis_infinitewp' ); ?></a>
+	</p>
+
 	<table class="wp-list-table widefat fixed striped">
 		<thead>
 			<tr>

@@ -1,11 +1,14 @@
-<div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+<?php
 
-	<pre><?php
+\ob_clean();
 
-	$websites = $this->plugin->get_websites();
+\header( 'content-type: application/json' );
 
-	echo wp_json_encode( $websites, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES );
+echo \wp_json_encode(
+	$this->plugin->get_websites(),
+	\JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES
+);
 
-	?></pre>
-</div>
+\ob_end_flush();
+
+exit;
