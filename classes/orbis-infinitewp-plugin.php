@@ -1,6 +1,13 @@
 <?php
 
 class Orbis_InfiniteWP_Plugin extends Orbis_Plugin {
+	/**
+	 * Admin.
+	 *
+	 * @var Orbis_InfiniteWP_Admin|null
+	 */
+	private $admin;
+
 	public function __construct( $file ) {
 		parent::__construct( $file );
 
