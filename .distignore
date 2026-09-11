@@ -37,3 +37,5 @@ psalm.xml
 /build/
 /deploy/
 /node_modules/
+
+/Gruntfile.js
